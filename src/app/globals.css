@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-bg-white-0: #ffffff;
+  --color-bg-weak-25: #fbfcfd;
+  --color-bg-weak-50: #f5f7fa;
+  --color-bg-soft-200: #e1e4ea;
+  --color-information-base: #335cff;
+  --color-text-strong-950: #0e121b;
+  --color-text-sub-600: #525866;
+  --color-text-soft-400: #99a0ae;
+  --color-text-disabled-300: #cacfd8;
+  --color-stroke-soft-200: #e1e4ea;
+  --color-stroke-strong-950: #0e121b;
+  --color-primary-base: #335cff;
+  --color-primary-dark: #2447d8;
+  --color-information-lighter: #ebf1ff;
+  --shadow-complex: 0 16px 40px rgba(14, 18, 27, 0.08), 0 1px 2px rgba(14, 18, 27, 0.08);
+  --shadow-regular-xs: 0 1px 2px rgba(14, 18, 27, 0.06);
+  --radius-10: 10px;
+  --radius-20: 20px;
+  --spacing-0\.25: 1px;
+  --spacing-1\.25: 5px;
+  --spacing-4\.5: 18px;
+  --spacing-5\.5: 22px;
+  --spacing-15: 60px;
+  --spacing-20\.5: 82px;
+  --spacing-27: 108px;
+  --spacing-160: 640px;
+  --z-index-400: 400;
+  --z-index-500: 500;
+  --tracking-spacing-tiny-4: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+@utility text-title-h3 {
+  font-size: 2.75rem;
+  line-height: 3.25rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@utility text-title-h2 {
+  font-size: 3.25rem;
+  line-height: 3.75rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@utility text-title-h4 {
+  font-size: 2.25rem;
+  line-height: 2.75rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@utility text-title-h5 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@utility text-title-h6 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@utility text-paragraph-md {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@utility text-label-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@utility text-label-md {
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@utility text-label-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@utility text-label-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@utility text-label-2xs {
+  font-size: 0.6875rem;
+  line-height: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@utility text-subheading-2xs {
+  font-size: 0.6875rem;
+  line-height: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+@media (max-width: 640px) {
+  .text-title-h4 {
+    font-size: 1.875rem;
+    line-height: 2.375rem;
+  }
+}
