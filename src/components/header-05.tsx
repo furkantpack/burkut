@@ -9,6 +9,7 @@ import {
   RiNotification3Line,
   RiSearchLine,
 } from '@remixicon/react';
+import Image from '@repo/registry/next-image-mock';
 import Link from '@repo/registry/next-link-mock';
 
 import * as Button from '@/components/ui/button';
@@ -105,39 +106,14 @@ function NavDropdownMenu() {
 }
 
 const Logo = ({ className }: { className?: string }) => (
-  <svg
-    width='28'
-    height='28'
-    viewBox='0 0 28 28'
-    fill='none'
-    xmlns='http://www.w3.org/2000/svg'
+  <Image
+    src='/brand/burkut-global-logo.png'
+    alt='Burkut Global'
+    width={72}
+    height={58}
     className={className}
-  >
-    <path
-      d='M14 9.33333L10.0333 7V2.33333L14 0L17.9667 2.33333V7L14 9.33333Z'
-      className='fill-primary-base'
-    />
-    <path
-      d='M21.9333 14L17.9667 11.6667V7L21.9333 4.66667L25.9 7V11.6667L21.9333 14Z'
-      className='fill-primary-base'
-    />
-    <path
-      d='M17.9667 21V16.3333L21.9333 14L25.9 16.3333V21L21.9333 23.3333L17.9667 21Z'
-      className='fill-primary-base'
-    />
-    <path
-      d='M10.0333 21L14 18.6667L17.9667 21V25.6667L14 28L10.0333 25.6667V21Z'
-      className='fill-primary-base'
-    />
-    <path
-      d='M6.06667 14L10.0333 16.3333V21L6.06667 23.3333L2.10001 21V16.3333L6.06667 14Z'
-      className='fill-primary-base'
-    />
-    <path
-      d='M6.06667 14L10.0333 11.6667V7L6.06667 4.66667L2.10001 7V11.6667L6.06667 14Z'
-      className='fill-primary-base'
-    />
-  </svg>
+    priority
+  />
 );
 
 export default function Header05() {
@@ -171,7 +147,7 @@ export default function Header05() {
     <header className='lg:rounded-20 border-stroke-soft-200 lg:shadow-complex relative z-400 flex h-16 w-full items-center justify-between gap-5 border-b bg-bg-white-0 px-6 py-4.5 pr-4.5 lg:mx-auto lg:mt-6 lg:w-fit lg:min-w-160 lg:border-none lg:px-5 lg:py-4'>
       <div className='flex flex-1 items-center gap-5'>
         <Link href='/' className='flex items-center'>
-          <Logo className='text-primary-base size-7' />
+          <Logo className='h-10 w-auto object-contain' />
         </Link>
 
         <nav
@@ -264,7 +240,7 @@ export default function Header05() {
             asChild
             className='rounded-10 w-full lg:h-8 lg:w-auto'
           >
-            <Link href='/'>Get started</Link>
+            <Link href='/contact'>Contact</Link>
           </Button.Root>
         </div>
       </div>

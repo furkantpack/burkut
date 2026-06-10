@@ -217,6 +217,46 @@ export default function Contact02() {
               </FancyButton.Root>
             </div>
           </form>
+          <div className='border-stroke-soft-200 bg-bg-weak-50 mb-6 grid w-full max-w-[680px] grid-cols-1 gap-px overflow-hidden rounded-[14px] border md:grid-cols-2'>
+            <div className='bg-bg-white-0 px-5 py-4 md:col-span-2'>
+              <div className='text-label-sm text-text-strong-950'>
+                BURKUT GLOBAL Holding
+              </div>
+            </div>
+            <div className='bg-bg-white-0 px-5 py-4'>
+              <div className='text-label-xs text-text-soft-400 mb-1'>
+                CR number
+              </div>
+              <div className='text-label-sm text-text-sub-600'>1608354</div>
+            </div>
+            <div className='bg-bg-white-0 px-5 py-4'>
+              <div className='text-label-xs text-text-soft-400 mb-1'>
+                VAT number
+              </div>
+              <div className='text-label-sm text-text-sub-600'>
+                OM1100494742
+              </div>
+            </div>
+            <div className='bg-bg-white-0 px-5 py-4'>
+              <div className='text-label-xs text-text-soft-400 mb-1'>
+                Address
+              </div>
+              <div className='text-label-sm text-text-sub-600'>
+                Khazaen Economic City, 1649 Street No. 66, Barka, Oman
+              </div>
+            </div>
+            <div className='bg-bg-white-0 px-5 py-4'>
+              <div className='text-label-xs text-text-soft-400 mb-1'>
+                Phone
+              </div>
+              <a
+                href='tel:+96877441244'
+                className='text-label-sm text-text-sub-600 hover:text-text-strong-950 transition-colors'
+              >
+                +968 7744 1244
+              </a>
+            </div>
+          </div>
           <div className='text-label-sm text-text-soft-400 w-full text-center lg:w-101'>
             Collaborate with Burkut Global on strategic defense, engineering,
             and industrial transformation initiatives,{' '}

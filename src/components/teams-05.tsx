@@ -15,49 +15,49 @@ const teamData = [
     sector: 'Autonomous Systems',
     solution: 'Precision Strike Systems',
     label: 'Loitering Munitions',
-    image: '/team-slides/team-slide-1.jfif',
+    image: '/team-slides/team-slide-1-v2.png',
   },
   {
     id: 'member5',
     sector: 'Defense Technologies',
     solution: 'Mission Support & Battlefield Systems',
     label: 'Tactical Operations',
-    image: '/team-slides/team-slide-2.jfif',
+    image: '/team-slides/team-slide-2-v2.png',
   },
   {
     id: 'member6',
     sector: 'Autonomous Systems',
     solution: 'VTOL Surveillance Platforms',
     label: 'Border Security',
-    image: '/team-slides/team-slide-3.png',
+    image: '/team-slides/team-slide-3-v2.png',
   },
   {
     id: 'member7',
     sector: 'Defense Industry',
     solution: 'Ballistic Solutions & Technical Textiles',
     label: 'NIJ Protection',
-    image: '/team-slides/team-slide-4.jfif',
+    image: '/team-slides/team-slide-4-v2.png',
   },
   {
     id: 'member4',
     sector: 'Defense Industry',
     solution: 'Autonomous Aerial Systems',
     label: 'UAV Systems',
-    image: '/team-slides/team-slide-5.jfif',
+    image: '/team-slides/team-slide-5-v2.png',
   },
   {
     id: 'member2',
     sector: 'Defense Industry',
     solution: 'Counter-Drone & Protection Systems',
     label: 'Force Protection',
-    image: '/team-slides/team-slide-6.jfif',
+    image: '/team-slides/team-slide-6-v2.png',
   },
   {
     id: 'member3',
     sector: 'Electronic Warfare',
     solution: 'Tactical Surveillance & Intelligence',
     label: 'ISR Solutions',
-    image: '/team-slides/team-slide-7.png',
+    image: '/team-slides/team-slide-7-v2.png',
   },
 ];
 
@@ -89,7 +89,7 @@ export default function Teams05() {
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 1023px)');
     setIsMobile(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    const handler = (event: MediaQueryListEvent) => setIsMobile(event.matches);
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
   }, []);
@@ -107,9 +107,9 @@ export default function Teams05() {
   };
 
   const activeMember = teamData[activeIndex];
-  const SLOTS = isMobile ? MOBILE_SLOTS : DESKTOP_SLOTS;
+  const slots = isMobile ? MOBILE_SLOTS : DESKTOP_SLOTS;
   const activeSize = isMobile ? 220 : 364;
-  const GAP = isMobile ? 16 : 24;
+  const gap = isMobile ? 16 : 24;
 
   return (
     <div className='bg-bg-white-0 py-10 lg:py-24 w-full'>
@@ -170,37 +170,41 @@ export default function Teams05() {
           className='relative w-full overflow-hidden'
           style={{ height: activeSize }}
         >
-          {teamData.map((member, idx) => {
+          {teamData.map((member, index) => {
             const total = teamData.length;
-            let offset = idx - activeIndex;
+            let offset = index - activeIndex;
             if (offset > total / 2) offset -= total;
             if (offset < -total / 2) offset += total;
 
-            let prevOffset = idx - prevActiveIndexRef.current;
-            if (prevOffset > total / 2) prevOffset -= total;
-            if (prevOffset < -total / 2) prevOffset += total;
-            const isWrapping = Math.abs(offset - prevOffset) > 1;
+            let previousOffset = index - prevActiveIndexRef.current;
+            if (previousOffset > total / 2) previousOffset -= total;
+            if (previousOffset < -total / 2) previousOffset += total;
+            const isWrapping = Math.abs(offset - previousOffset) > 1;
 
-            const slot = SLOTS.find((s) => s.offset === offset);
+            const slot = slots.find((item) => item.offset === offset);
             const isVisible = Math.abs(offset) <= 3;
             const size = slot?.size ?? (isMobile ? 120 : 64);
             const radius =
               slot?.radius ?? (isMobile ? 'rounded-[20px]' : 'rounded-2xl');
             const zIndex = isVisible ? 4 - Math.abs(offset) : 0;
-
-            const centerSlotIdx = SLOTS.findIndex((s) => s.offset === 0);
+            const centerSlotIndex = slots.findIndex(
+              (item) => item.offset === 0,
+            );
 
             let xOffset = 0;
             if (offset !== 0) {
-              const dir = offset > 0 ? 1 : -1;
-              const absOff = Math.abs(offset);
-              xOffset = SLOTS[centerSlotIdx].size / 2 + GAP;
-              for (let i = 1; i < absOff; i++) {
-                const s = SLOTS.find((s) => s.offset === i);
-                xOffset += (s?.size ?? (isMobile ? 120 : 64)) + GAP;
+              const direction = offset > 0 ? 1 : -1;
+              const absoluteOffset = Math.abs(offset);
+              xOffset = slots[centerSlotIndex].size / 2 + gap;
+              for (let i = 1; i < absoluteOffset; i++) {
+                const intermediateSlot = slots.find(
+                  (item) => item.offset === i,
+                );
+                xOffset +=
+                  (intermediateSlot?.size ?? (isMobile ? 120 : 64)) + gap;
               }
               xOffset += size / 2;
-              xOffset *= dir;
+              xOffset *= direction;
             }
 
             return (
@@ -224,10 +228,7 @@ export default function Teams05() {
                   alt={member.solution}
                   width={364}
                   height={364}
-                  className={cn(
-                    'size-full object-cover',
-                    !isWrapping && 'transition-all duration-500 ease-in-out',
-                  )}
+                  className='size-full object-cover'
                 />
               </div>
             );
@@ -240,14 +241,14 @@ export default function Teams05() {
             className='grid w-full grid-cols-1 overflow-hidden rounded-[14px] border border-stroke-soft-200 bg-bg-weak-50 md:grid-cols-3'
             style={{ animation: 'teams-fade-in 0.4s ease-out' }}
           >
-            <div className='flex flex-col gap-1 border-stroke-soft-200 px-4 py-3 md:border-r'>
-              <span className='text-label-xs text-text-soft-400'>Sektör</span>
+            <div className='flex flex-col gap-1 border-b border-stroke-soft-200 px-4 py-3 md:border-r md:border-b-0'>
+              <span className='text-label-xs text-text-soft-400'>Sector</span>
               <span className='text-label-md text-text-strong-950'>
                 {activeMember.sector}
               </span>
             </div>
-            <div className='flex flex-col gap-1 border-stroke-soft-200 px-4 py-3 md:border-r'>
-              <span className='text-label-xs text-text-soft-400'>Çözüm</span>
+            <div className='flex flex-col gap-1 border-b border-stroke-soft-200 px-4 py-3 md:border-r md:border-b-0'>
+              <span className='text-label-xs text-text-soft-400'>Solution</span>
               <span className='text-label-md text-text-strong-950'>
                 {activeMember.solution}
               </span>

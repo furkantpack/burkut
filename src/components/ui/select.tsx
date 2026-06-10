@@ -15,7 +15,11 @@ let selectCounter = 0;
 export function Root({ children }: { children: ReactNode }) {
   selectCounter += 1;
   const id = `select-${selectCounter}`;
-  return <div data-select-id={id}>{children}</div>;
+  return (
+    <div className='relative' data-select-id={id}>
+      {children}
+    </div>
+  );
 }
 
 type TriggerProps = ComponentPropsWithoutRef<'div'>;
